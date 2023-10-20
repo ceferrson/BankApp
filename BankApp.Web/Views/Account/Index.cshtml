@@ -1,0 +1,8 @@
+﻿@model List<AccountDto>
+<ul>
+    @foreach(var account in Model)
+    {
+        <li>@account.Balance</li>
+        <li>@account.AccountNumber</li>
+    }
+</ul>

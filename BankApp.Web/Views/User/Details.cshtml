@@ -1,0 +1,64 @@
+﻿@model UserDto
+
+
+
+<div class="row mt-4">
+    <div class="col-6">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">User Informations</h5>
+                <p class="card-text">Name: @Model.Name @Model.Surname</p> 
+                <a asp-action="List" asp-controller="User" class="card-link btn btn-primary">Back to Users</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 mb-5">
+        <h5 class="card-title">Account Informations</h5>
+        @if(Model.Accounts.Count > 0)
+        {
+            @foreach (var account in Model.Accounts)
+            {
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <p class="card-text">Account Number: @account.AccountNumber</p>
+                        <p class="card-text">Balance: @account.Balance</p>
+                        <a asp-action="SendMoney" asp-controller="Account" asp-route-accountId="@account.Id" class="card-link btn btn-warning">SendMoney</a>
+                        <a asp-action="Remove" asp-controller="Account" asp-route-accountId="@account.Id" class="card-link btn btn-danger">Delete Account</a>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="alert alert-danger text-center" role="alert">
+                <h5>User has no account!</h5>
+            </div>
+        }
+        
+    </div>
+</div>
+
+
+
+
+
+
+@* <div class="container text-center">
+    <div>
+        <table class="table table-hover table-bordered">
+            <tr>
+                <th>@Model.Name @Model.Surname</th>
+                <th>Account Number</th>
+                <th>Balance</th>
+            </tr>
+            @foreach(var account in Model.Accounts)
+            {
+                <tr>
+                    <td></td>
+                    <td>@account.AccountNumber</td>
+                    <td>@account.Balance</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div> *@

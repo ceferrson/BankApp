@@ -1,0 +1,26 @@
+﻿@model UserDto
+
+
+<div class="row mt-3 ml-5">
+    <div class="col-6">
+        <h4>The Informations of User</h4>
+        <p>User Name: @Model.Name</p>
+        <p>User Surname: @Model.Surname</p>
+        <p>User Account Number: <getAccountCount user-id="@Model.Id"></getAccountCount></p>
+    </div>
+    <div class="col-6">
+        <h4>Create New Account</h4>
+        <form asp-action="Create" asp-controller="Account" class="form-gorup" method="post">
+            <label for="Account Number">AccountNumber:</label>
+            <input name="AccountNumber" type="number" class="form-control" />
+
+            <label for="Balance">Balance:</label>
+            <input name="Balance" type="number" class="form-control" />
+
+            <input name="UserId" value="@Model.Id" type="hidden" class="form-control" />
+            <button class="btn btn-success">Create</button>
+        </form>
+
+    </div>
+</div>
+

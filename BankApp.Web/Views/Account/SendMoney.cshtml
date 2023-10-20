@@ -1,0 +1,45 @@
+﻿
+@model SelectList
+
+
+<div class="container container-fluid mt-5">
+    <form asp-action="SendMoney" asp-controller="Account" class="form-gorup w-75 mx-auto" method="post">
+    <div class="mb-3">
+        <input type="hidden" name="senderId" value="@ViewBag.SenderId" />
+        <label>Which Account you will send Money</label>
+        <select class="form-select" asp-items="@Model" name="recieverId">
+            <option disabled>Select Account</option>
+         </select>
+    </div>
+    <div class="mb-3">
+        <label>Amount: </label>
+        <input class="form-control" name="amount" type="number" />
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Send Money</button>
+    </div>
+    </form>
+</div>
+
+
+
+
+
+@* <div class="container container-fluid mt-5">
+    <div class="mb-3">
+        <form asp-action="SendMoney" asp-controller="Account" class="form-gorup" method="post">
+            <input type="hidden" name="senderId" value="@ViewBag.SenderId"/>
+            <label>Which Account you will send Money</label>
+            <select class="form-select" asp-items="@Model" name="recieverId">
+                <option disabled>Select Account</option>
+            </select>
+        </form>
+    </div>
+    <div>
+        <label>Amount: </label>
+        <input class="form-control" name="amount" type="number" />
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Send Money</button>
+    </div>
+</div> *@
